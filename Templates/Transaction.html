@@ -1,0 +1,52 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}
+    <title>HeyPay</title>
+{% endblock title %}
+
+{% block content %}
+    <style>
+        body{
+          padding: 10px;
+        }
+    </style>
+    <body>
+        <div class="row">
+    <div class="col-sm-4 px-5">
+    <h3><b>Sender's Account Number: </b>{{Acc_No}}</h3>
+    <br>
+        {% for d in custom %}   
+        <h3><b>Account Holder : </b>{{d.Account_Holder}}</h3>
+        <h3><b>Email Id : </b>{{d.Email_Id}}</h3>
+        <h3><b>Current Balance : </b>{{d.Current_Balance}}</h3>
+        {% endfor %}
+    </div>
+    <div class="col-sm-6 px-5">
+        <h1 align="center" class="pb-5">Receiver Details</h1>
+        <form action="/bank/Transhis/" method="POST">{% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Enter Account Number Of Receiver</label>
+              <input type="hidden" name="sender_acc_no" class="form-control" value={{Acc_No}}>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="recv_AccNo" aria-describedby="emailHelp" placeholder="Enter Account Number">
+            </div>
+            {%if flag1 %}
+              <div class="alert alert-danger" role="alert">
+               Can't Transfer To Same Account !!
+              </div>
+              {%endif%}
+            <div class="form-group">
+              <label for="exampleInputPassword1">Enter Amount to Transfer</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" name="Amt_to_transfer" placeholder="Enter Amount">
+            </div>
+            {%if flag %}
+                <div class="alert alert-danger" role="alert">
+                 Insufficient Balance!!!!
+                </div>
+             {%endif%}
+
+            <input type="submit" class="btn btn-primary" value="Transfer">
+          </form>
+    </div>
+        </div>
+    </body>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}
+    <title>HeyPay</title>
+{% endblock title %}
+
+{% block content %}
+<h2 align="center" class="pb-3">Transaction History</h2>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr align="center">
+        <th colspan="2">Sender</th>
+        <th colspan="2">Receiver</th>
+        <th rowspan="2" class="align-middle">Amount Transfered</th>
+        <th colspan="2">Updated Balance</th>
+        <th rowspan="2" class="align-middle">Date/Time</th>
+     </tr>
+     <tr align="center">
+        <th>Acc No</th>
+        <th>Name</th>
+        <th>Acc No</th>
+        <th>Name</th>
+        <th>Sender</th>
+        <th>Receiver</th>
+     </tr>
+    </thead>
+    <tbody>
+        {% for c in transfer %}
+        <tr align="center">
+         <td>{{ c.Acc_No }}</td>
+         <td>{{ c.Sender_name }}</td>
+         <td>{{ c.Acc_no_of_reciever }}</td>
+         <td>{{ c.Reciever_name }}</td>
+         <td>{{ c.Amount_transferred }}</td>
+         <td>{{ c.Updated_balance_of_sender }}</td>
+         <td>{{ c.updated_balance_of_reciever }}</td>
+         <td>{{ c.Date_Time }}</td>
+         
+         
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

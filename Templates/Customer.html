@@ -1,0 +1,34 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}
+    <title>HeyPay</title>
+{% endblock title %}
+
+{% block content %}
+    <h2 align="center">Customers List</h2>
+    <div class="container mt-3">
+        <hr>
+        <table class="table">
+            <thead>
+                <tr align="center">
+                    <th>Account No</th>
+                    <th>Account Holder</th>
+                    <th>Email</th>
+                    <th>Account Balance</th>
+                    <th>Transfer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in customers %}
+                <tr align="center">
+                    <td>{{s.Acc_No}}</td>
+                    <td>{{s.Account_Holder}}</td>
+                    <td>{{s.Email_Id}}</td>
+                    <td>{{s.Current_Balance}}</td>
+                    <td><a href="{% url 'Trans' s.Acc_No %}" class="btn btn-primary">Transfer</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
