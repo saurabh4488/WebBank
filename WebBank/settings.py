@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e9f+8)@s%$qlge@%lvn7qf7#g=^d+6-9p(z77yzg7xmz8!_nlw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['heypay-bank.herokuapp.com','127.0.0.1']
 
