@@ -3,10 +3,10 @@ from django.db.models.deletion import CASCADE
 from django.utils import timezone
 
 class Customer(models.Model):
-    Acc_No = models.IntegerField(max_length=200, primary_key=True)
+    Acc_No = models.IntegerField(primary_key=True)
     Account_Holder = models.CharField(max_length=200)
     Email_Id = models.EmailField(max_length=200)
-    Current_Balance=models.IntegerField(max_length=200)
+    Current_Balance=models.IntegerField()
     def __str__(self):
         return str(self.Acc_No)
 

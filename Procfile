@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn WebBank.wsgi --log-file -

@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +26,7 @@ SECRET_KEY = 'django-insecure-e9f+8)@s%$qlge@%lvn7qf7#g=^d+6-9p(z77yzg7xmz8!_nlw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['heypay-bank.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -78,8 +77,12 @@ WSGI_APPLICATION = 'WebBank.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bank_database',
+        'USER': 'saurabh_4488',
+        'PASSWORD':'Saurabh7708',
+        'HOST':'bank-database-identifier.c78uaza3vadf.us-east-2.rds.amazonaws.com',
+        'PORT':'5432'
     }
 }
 
@@ -128,12 +131,10 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+
