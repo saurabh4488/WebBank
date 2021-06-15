@@ -27,7 +27,7 @@ def Update_bal(request):
     #Sender's Details 
     sender_acc_no=int(request.POST.get('sender_acc_no'))
     update=Customer.objects.filter(Acc_No=sender_acc_no)
-    if(sender_acc_no!=recv_AccNo && Amt_to_transfer!=0):
+    if(sender_acc_no!=recv_AccNo and Amt_to_transfer!=0):
         flag1=0
         for y in update:
             sender_curr_bal=y.Current_Balance
