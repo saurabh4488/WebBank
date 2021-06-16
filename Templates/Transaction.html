@@ -23,7 +23,7 @@
     </div>
     <div class="col-sm-6 px-5">
         <h1 align="center" class="pb-5">Receiver Details</h1>
-        <form action="/bank/Transhis/" method="POST">{% csrf_token %}
+        <form action="/Transhis/" method="POST">{% csrf_token %}
             <div class="form-group">
               <label for="exampleInputEmail1">Enter Account Number Of Receiver</label>
               <input type="hidden" name="sender_acc_no" class="form-control" value={{Acc_No}}>
