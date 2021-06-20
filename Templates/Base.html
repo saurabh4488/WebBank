@@ -9,20 +9,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
         {% block title %}
         {% endblock title %}
 </head>
 <style>
-  #bg{
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    
-}
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 </style>
-<body id="bg" style="background-image: url('{% static "images/banking.jpg"%}');">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">HeyPay</a>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-weight: 400;">
+        <a class="navbar-brand" href="#" style="font-family: 'Lobster', cursive; font-size: 25px;">HeyPay</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,14 +35,24 @@
               <a class="nav-link" href="{% url 'Transactions' %}">Transaction History</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
-      <br>
       {% block content%}
       {% endblock content %}
+      <br>
+      <br
+      <!-- Footer -->
+      <div>
+        <footer class="page-footer font-small blue fixed-bottom">
+      
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3 bg-primary text-white">© 2021 Copyright:
+            <a href="#" style="color: white;"> IndiaBank.com</a>
+          </div>
+          <!-- Copyright -->
+      
+        </footer>
+      </div>
+          <!-- Footer -->
 </body>
 </html>

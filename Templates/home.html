@@ -5,6 +5,36 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Home Page</h1>
-
+<style>
+    body{
+      background-image: url('{% static "images/banker.jpg"%}');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      background-attachment: fixed;
+  }
+  p{
+      font-family: 'Courgette', cursive;
+      font-size: 30px;
+  }
+  a{
+      font-family: 'Courgette', cursive;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  </style>
+    
+    <h1 align="center"  class="pb-3 pt-4 " style="font-family: 'Lobster', cursive; font-weight: bold; font-size: 50px;">Welcome to HeyPay</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mt-5">
+                <p>
+                    “Good Banking is produced not by good laws, but by good bankers.” ― Hartley Withers
+                </p>
+                <br>
+                <a href="{% url 'Customer' %}" class="btn btn-success btn-lg ">
+                    Start Transaction
+            </a>
+            </div>   
+        </div>
+    </div>
 {% endblock content %}

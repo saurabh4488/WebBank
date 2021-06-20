@@ -8,7 +8,7 @@ def index(request):
     return render(request,"home.html")
 
 def Customer_Table(request):
-    customers = Customer.objects.all()
+    customers = Customer.objects.all().order_by("Acc_No")
     return render(request,"Customer.html",{'customers':customers})
 
 def Trans(request,Acc):
@@ -27,7 +27,7 @@ def Update_bal(request):
     #Sender's Details 
     sender_acc_no=int(request.POST.get('sender_acc_no'))
     update=Customer.objects.filter(Acc_No=sender_acc_no)
-    if(sender_acc_no!=recv_AccNo and Amt_to_transfer!=0):
+    if(sender_acc_no!=recv_AccNo):
         flag1=0
         for y in update:
             sender_curr_bal=y.Current_Balance
@@ -57,7 +57,7 @@ def Update_bal(request):
                 sender=Customer.objects.get(Acc_No=sender_acc_no)
                 tran=Transaction.objects.create(Acc_No=sender, Amount_transferred= Amt_to_transfer, Acc_no_of_reciever=recv_AccNo, updated_balance_of_reciever=recv_credit, Updated_balance_of_sender=send_debit ,Sender_name=send_name ,Reciever_name=recv_name)
 
-            customers = Customer.objects.all()
+            customers = Customer.objects.all().order_by("Acc_No")
             context={'flag':flag, 'customers':customers}
             return render(request, "Customer.html",context)
     else:

@@ -13,6 +13,7 @@
     <body>
         <div class="row">
     <div class="col-sm-4 px-5">
+      <br>
     <h3><b>Sender's Account Number: </b>{{Acc_No}}</h3>
     <br>
         {% for d in custom %}   
@@ -22,7 +23,7 @@
         {% endfor %}
     </div>
     <div class="col-sm-6 px-5">
-        <h1 align="center" class="pb-5">Receiver Details</h1>
+        <h1 align="center"  class="pb-3 pt-3" style="font-family: Georgia;">Receiver Details</h1>
         <form action="/Transhis/" method="POST">{% csrf_token %}
             <div class="form-group">
               <label for="exampleInputEmail1">Enter Account Number Of Receiver</label>

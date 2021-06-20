@@ -5,11 +5,26 @@
 {% endblock title %}
 
 {% block content %}
-    <h2 align="center">Customers List</h2>
+<style>
+    body{
+      background-image: url('{% static "images/piggy.jpg"%}');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 70%;
+      background-attachment: fixed;
+  }
+  table{
+      opacity: 0.8;
+  }
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&display=swap');
+        </style>
+    <h2 align="center" class="pb-3 pt-3" style="font-family: 'Courgette', cursive; background-color: aqua;">Customers List</h2>
     <div class="container mt-3">
         <hr>
-        <table class="table">
-            <thead>
+        <table class="table table-bordered table-hover bg-white">
+            <thead class="thead-dark">
                 <tr align="center">
                     <th>Account No</th>
                     <th>Account Holder</th>
@@ -18,7 +33,7 @@
                     <th>Transfer</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="font-weight: 600;">
                 {% for s in customers %}
                 <tr align="center">
                     <td>{{s.Acc_No}}</td>

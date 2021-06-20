@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'WebBank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bank_database',
-        'USER': 'saurabh_4488',
-        'PASSWORD':'Saurabh7708',
-        'HOST':'bank-database-identifier.c78uaza3vadf.us-east-2.rds.amazonaws.com',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD':'Saurabh@7708',
+        'HOST':'localhost',
         'PORT':'5432'
     }
 }
